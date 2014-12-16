@@ -1,4 +1,23 @@
+def group_by(items, &block)
+  result = {}
+  items.each do |item|
+    if block.call(item)
+      result[block.call(item)] ||= []
+      result[block.call(item)] << item
+    end
+  end
+  result
+end
 
+
+# def group_by_x(hashes)
+#   result = {}
+#   hashes.each do |hash|
+#     result[hash[:x]] ||= []
+#     result[hash[:x]] << hash
+#   end
+#   result
+# end
 
 # ------ code above this line ------
 
